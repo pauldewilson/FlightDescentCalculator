@@ -1,0 +1,1 @@
+Personal use only, no commercial or online hosting

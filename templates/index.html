@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Altitude Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Altitude Calculator</h1>
+      </div>
+      <div class="descent_form_class">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.alt_start(class="form-control") }}
+            <br>
+            {{ form.alt_end(class="form-control") }}
+            <br>
+            {{ form.kias(class="form-control") }}
+            <br>
+            {{ form.distance_nm(class="form-control") }}
+            <br>
+            {{form.submit(class="btn btn-primary btn-block") }}
+        </form>
+      </div>
+      <div class="calculation_statements">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Start Alt</th>
+                <th scope="col">End Alt</th>
+                <th scope="col">KIAS</th>
+                <th scope="col">Nautical Miles</th>
+                <th scope="col">Required FPM</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{cell}}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>
